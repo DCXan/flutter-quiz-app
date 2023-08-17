@@ -7,10 +7,14 @@ void main() {
       home: Scaffold(
         body: Container(
             decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color.fromARGB(255, 110, 8, 128),
-                Color.fromARGB(255, 79, 7, 92),
-              ]),
+              gradient: LinearGradient(
+                colors: [
+                  Color.fromARGB(255, 64, 4, 124),
+                  Color.fromARGB(255, 115, 42, 233),
+                ],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
             ),
             child: const StartScreen()),
       ),
