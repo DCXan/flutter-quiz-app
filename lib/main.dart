@@ -14,7 +14,8 @@ void main() {
           child: Column(
             children: [
               Image.asset(
-                '/Users/davidchen/Desktop/Flutter-Projects/flutter-quiz-app/quiz_app/assets/images/quiz-logo.png',
+                // '/Users/davidchen/Desktop/Flutter-Projects/flutter-quiz-app/quiz_app/assets/images/quiz-logo.png',
+                'assets/images/quiz-logo.png',
               ),
               const TextButton(onPressed: buttonPress, child: Text('Start Quiz'))
             ],
