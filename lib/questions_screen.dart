@@ -14,20 +14,22 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(context) {
+    final currentQuestion = questions[0];
+
     return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            'Question 1',
-            style: TextStyle(color: Colors.white),
+          Text(
+            currentQuestion.text,
+            style: const TextStyle(color: Colors.white),
           ),
           const SizedBox(height: 30),
-          AnswerButton(answerText: 'Answer 1', onTap: () {}),
-          AnswerButton(answerText: 'Answer 2', onTap: () {}),
-          AnswerButton(answerText: 'Answer 3', onTap: () {}),
-          AnswerButton(answerText: 'Answer 4', onTap: () {})
+          AnswerButton(answerText: currentQuestion.answers[0], onTap: () {}),
+          AnswerButton(answerText: currentQuestion.answers[1], onTap: () {}),
+          AnswerButton(answerText: currentQuestion.answers[2], onTap: () {}),
+          AnswerButton(answerText: currentQuestion.answers[3], onTap: () {})
         ],
       ),
     );
