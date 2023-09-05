@@ -15,7 +15,7 @@ class QuizApp extends StatefulWidget {
 class _QuizAppState extends State<QuizApp> {
   var activeScreen = 'start-screen';
 
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
 
   // @override
   // void initState() {
@@ -34,6 +34,7 @@ class _QuizAppState extends State<QuizApp> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
+        selectedAnswers = [];
         activeScreen = 'start-screen';
       });
     }
