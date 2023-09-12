@@ -12,6 +12,8 @@ class QuestionsSummary extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: summaryData.map((question) {
+            bool isCorrectAnswer =
+                (question['user_answer'] == question['correct_answer']);
             return Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -19,10 +21,9 @@ class QuestionsSummary extends StatelessWidget {
                   padding: const EdgeInsets.all(8.0),
                   child: CircleAvatar(
                     radius: 14,
-                    backgroundColor:
-                        ((question['user_answer'] == question['correct_answer'])
-                            ? const Color.fromARGB(255, 97, 228, 156)
-                            : const Color.fromARGB(255, 202, 67, 123)),
+                    backgroundColor: (isCorrectAnswer
+                        ? const Color.fromARGB(255, 97, 228, 156)
+                        : const Color.fromARGB(255, 202, 67, 123)),
                     child: Text(
                       ((question['question_index'] as int) + 1).toString(),
                       style: const TextStyle(
