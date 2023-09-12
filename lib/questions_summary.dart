@@ -18,7 +18,8 @@ class QuestionsSummary extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                   child: CircleAvatar(
                     radius: 14,
                     backgroundColor: (isCorrectAnswer
