@@ -7,22 +7,71 @@ class QuestionsSummary extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: summaryData.map((question) {
-        return Row(children: [
-          Text(((question['question_index'] as int) + 1).toString()),
-          Column(
-            children: [
-              Text(question['question'] as String),
-              const SizedBox(
-                height: 5,
-              ),
-              Text('You selected: ${question['user_answer']}'),
-              Text('The correct answer is: ${question['correct_answer']}'),
-            ],
-          ),
-        ]);
-      }).toList(),
+    return SizedBox(
+      height: 400,
+      child: SingleChildScrollView(
+        child: Column(
+          children: summaryData.map((question) {
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: CircleAvatar(
+                    radius: 14,
+                    backgroundColor:
+                        ((question['user_answer'] == question['correct_answer'])
+                            ? const Color.fromARGB(255, 97, 228, 156)
+                            : const Color.fromARGB(255, 202, 67, 123)),
+                    child: Text(
+                      ((question['question_index'] as int) + 1).toString(),
+                      style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 4, right: 4, bottom: 4, top: 8),
+                        child: Text(
+                          '${question['question']}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 16,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, right: 4),
+                        child: Text('${question['user_answer']}',
+                            style: const TextStyle(color: Colors.grey)),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 4, right: 4),
+                        child: Text(
+                          '${question['correct_answer']}',
+                          style: const TextStyle(color: Colors.lightGreen),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          }).toList(),
+        ),
+      ),
     );
   }
 }
